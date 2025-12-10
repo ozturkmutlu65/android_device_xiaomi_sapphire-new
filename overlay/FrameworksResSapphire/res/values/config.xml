@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2023 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <integer name="config_udfps_illumination_transition_ms">50</integer>
+
+    <!-- Minimum screen brightness setting allowed by power manager.
+         -2 is invalid so setting will resort to int value specified above.
+         Set this to 0.0 to allow screen to go to minimal brightness.
+         The user is forbidden from setting the brightness below this level. -->
+    <item name="config_screenBrightnessSettingMinimumFloat" type="dimen">0.00342131</item>
+
+    <!-- Maximum screen brightness allowed by the power manager.
+         -2 is invalid so setting will resort to int value specified above.
+         Set this to 1.0 for maximum brightness range.
+         The user is forbidden from setting the brightness above this level. -->
+    <item name="config_screenBrightnessSettingMaximumFloat" type="dimen">1.0</item>
+
+    <!-- Default screen brightness setting set.
+         -2 is invalid so setting will resort to int value specified above.
+         Must be in the range specified by minimum and maximum. -->
+    <item name="config_screenBrightnessSettingDefaultFloat" type="dimen">0.14956012</item>
+
+    <!-- Screen brightness used to dim the screen when the user activity
+         timeout expires.  May be less than the minimum allowed brightness setting
+         that can be set by the user. -->
+    <integer name="config_screenBrightnessDim">13</integer>
+    <item name="config_screenBrightnessDimFloat" type="dimen">0.00342131</item>
+
+    <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
+         The N entries of this array define N + 1 control points as follows:
+         (1-based arrays)
+
+         Point 1:            (0, value[1]):             lux <= 0
+         Point 2:     (level[1], value[2]):  0        < lux <= level[1]
+         Point 3:     (level[2], value[3]):  level[2] < lux <= level[3]
+         ...
+         Point N+1: (level[N], value[N+1]):  level[N] < lux
+
+         The control points must be strictly increasing.  Each control point
+         corresponds to an entry in the brightness backlight values arrays.
+         For example, if lux == level[1] (first element of the levels array)
+         then the brightness will be determined by value[2] (second element
+         of the brightness values array).
+
+         Spline interpolation is used to determine the auto-brightness
+         backlight values for lux levels between these control points.
+
+         Must be overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessLevels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
+        <item>60</item>
+        <item>65</item>
+        <item>70</item>
+        <item>75</item>
+        <item>80</item>
+        <item>85</item>
+        <item>90</item>
+        <item>95</item>
+        <item>100</item>
+        <item>120</item>
+        <item>140</item>
+        <item>160</item>
+        <item>180</item>
+        <item>200</item>
+        <item>220</item>
+        <item>240</item>
+        <item>260</item>
+        <item>280</item>
+        <item>300</item>
+        <item>320</item>
+        <item>340</item>
+        <item>360</item>
+        <item>380</item>
+        <item>400</item>
+        <item>420</item>
+        <item>440</item>
+        <item>460</item>
+        <item>480</item>
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>900</item>
+        <item>1100</item>
+        <item>1300</item>
+        <item>1500</item>
+        <item>1700</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2500</item>
+        <item>3000</item>
+        <item>3500</item>
+        <item>4000</item>
+        <item>4500</item>
+        <item>5000</item>
+        <item>5500</item>
+        <item>6000</item>
+        <item>6500</item>
+        <item>7000</item>
+        <item>7500</item>
+        <item>8000</item>
+        <item>8500</item>
+        <item>9000</item>
+        <item>9500</item>
+        <item>10000</item>
+        <item>10500</item>
+        <item>11000</item>
+        <item>11500</item>
+        <item>12000</item>
+        <item>12500</item>
+        <item>13000</item>
+        <item>13500</item>
+        <item>14000</item>
+        <item>14500</item>
+        <item>15000</item>
+        <item>16000</item>
+        <item>17000</item>
+        <item>18000</item>
+        <item>19000</item>
+        <item>20000</item>
+        <item>21000</item>
+        <item>22000</item>
+        <item>23000</item>
+        <item>24000</item>
+        <item>25000</item>
+        <item>26000</item>
+        <item>27000</item>
+        <item>28000</item>
+        <item>29000</item>
+        <item>30000</item>
+        <item>35000</item>
+        <item>40000</item>
+        <item>45000</item>
+        <item>50000</item>
+        <item>55000</item>
+        <item>60000</item>
+        <item>65000</item>
+        <item>70000</item>
+        <item>75000</item>
+        <item>80000</item>
+        <item>85000</item>
+        <item>90000</item>
+        <item>95000</item>
+        <item>100000</item>
+    </integer-array>
+
+    <!-- Array of desired screen brightness in nits corresponding to the lux values
+         in the config_autoBrightnessLevels array. The display brightness is defined as the measured
+         brightness of an all-white image.
+
+         If this is defined then:
+            - config_autoBrightnessLcdBacklightValues should not be defined
+            - config_screenBrightnessNits must be defined
+            - config_screenBrightnessBacklight must be defined
+
+         This array should have size one greater than the size of the config_autoBrightnessLevels
+         array. The brightness values must be non-negative and non-decreasing. This must be
+         overridden in platform specific overlays -->
+    <array name="config_autoBrightnessDisplayValuesNits">
+        <item>3.5</item>
+        <item>7.7</item>
+        <item>11.9</item>
+        <item>16.1</item>
+        <item>20.2</item>
+        <item>24.4</item>
+        <item>28.6</item>
+        <item>30.8</item>
+        <item>32.1</item>
+        <item>33.5</item>
+        <item>35.0</item>
+        <item>36.6</item>
+        <item>38.2</item>
+        <item>40.0</item>
+        <item>41.8</item>
+        <item>43.7</item>
+        <item>45.8</item>
+        <item>47.9</item>
+        <item>50.0</item>
+        <item>52.3</item>
+        <item>55.3</item>
+        <item>57.1</item>
+        <item>59.7</item>
+        <item>62.3</item>
+        <item>65.8</item>
+        <item>67.8</item>
+        <item>70.7</item>
+        <item>73.7</item>
+        <item>76.7</item>
+        <item>79.9</item>
+        <item>83.1</item>
+        <item>83.6</item>
+        <item>84.0</item>
+        <item>84.5</item>
+        <item>85.0</item>
+        <item>85.4</item>
+        <item>85.8</item>
+        <item>86.3</item>
+        <item>86.7</item>
+        <item>87.2</item>
+        <item>87.6</item>
+        <item>88.1</item>
+        <item>88.5</item>
+        <item>88.9</item>
+        <item>89.4</item>
+        <item>90.8</item>
+        <item>92.3</item>
+        <item>93.7</item>
+        <item>95.3</item>
+        <item>96.6</item>
+        <item>98.1</item>
+        <item>99.6</item>
+        <item>101.0</item>
+        <item>102.5</item>
+        <item>109.1</item>
+        <item>110.6</item>
+        <item>112.2</item>
+        <item>113.7</item>
+        <item>115.2</item>
+        <item>116.8</item>
+        <item>118.3</item>
+        <item>119.8</item>
+        <item>121.4</item>
+        <item>122.9</item>
+        <item>124.5</item>
+        <item>132.4</item>
+        <item>142.6</item>
+        <item>162.9</item>
+        <item>184.1</item>
+        <item>206.6</item>
+        <item>229.6</item>
+        <item>253.1</item>
+        <item>277</item>
+        <item>289.2</item>
+        <item>352.1</item>
+        <item>417.9</item>
+        <item>436.5</item>
+        <item>455.1</item>
+        <item>473.7</item>
+        <item>492.2</item>
+        <item>510.8</item>
+        <item>515.2</item>
+        <item>521.9</item>
+        <item>539.6</item>
+        <item>557.3</item>
+        <item>575.0</item>
+        <item>592.8</item>
+        <item>610.5</item>
+        <item>628.2</item>
+        <item>645.9</item>
+        <item>663.6</item>
+        <item>681.3</item>
+        <item>699.0</item>
+        <item>700.0</item>
+        <item>734.4</item>
+        <item>752.1</item>
+        <item>769.8</item>
+        <item>787.5</item>
+        <item>805.2</item>
+        <item>822.9</item>
+        <item>858.3</item>
+        <item>893.8</item>
+        <item>929.2</item>
+        <item>964.6</item>
+        <item>1000.0</item>
+        <item>1002.5</item>
+        <item>1005.0</item>
+        <item>1007.5</item>
+        <item>1010.0</item>
+        <item>1012.5</item>
+        <item>1015.0</item>
+        <item>1017.5</item>
+        <item>1020.0</item>
+        <item>1022.5</item>
+        <item>1025.0</item>
+        <item>1037.5</item>
+        <item>1050.0</item>
+        <item>1062.5</item>
+        <item>1075.0</item>
+        <item>1087.5</item>
+        <item>1100.0</item>
+        <item>1112.5</item>
+        <item>1125.0</item>
+        <item>1137.5</item>
+        <item>1150.0</item>
+        <item>1162.5</item>
+        <item>1175.0</item>
+        <item>1187.5</item>
+        <item>1200.0</item>
+    </array>
+
+    <!-- An array describing the screen's backlight values corresponding to the brightness
+         values in the config_screenBrightnessNits array.
+
+         This array should be equal in size to config_screenBrightnessBacklight. -->
+    <integer-array name="config_screenBrightnessBacklight">
+        <item>1</item>
+        <item>255</item>
+    </integer-array>
+
+    <!-- An array of floats describing the screen brightness in nits corresponding to the backlight
+         values in the config_screenBrightnessBacklight array.  On OLED displays these  values
+         should be measured with an all white image while the display is in the fully on state.
+         Note that this value should *not* reflect the maximum brightness value for any high
+         brightness modes but only the maximum brightness value obtainable in a sustainable manner.
+
+         This array should be equal in size to config_screenBrightnessBacklight -->
+    <array name="config_screenBrightnessNits">
+        <item>4.3</item>
+        <item>1000.0</item>
+    </array>
+
+    <!-- The bounding path of the cutout region of the main built-in display.
+         Must either be empty if there is no cutout region, or a string that is parsable by
+         {@link android.util.PathParser}.
+
+         The path is assumed to be specified in display coordinates with pixel units and in
+         the display's native orientation, with the origin of the coordinate system at the
+         center top of the display. Optionally, you can append either `@left` or `@right` to the
+         end of the path string, in order to change the path origin to either the top left,
+         or top right of the display.
+
+         To facilitate writing device-independent emulation overlays, the marker `@dp` can be
+         appended after the path string to interpret coordinates in dp instead of px units.
+         Note that a physical cutout should be configured in pixels for the best results.
+
+         If the display supports multiple resolutions, please define the path config based on the
+         highest resolution so that it can be scaled correctly in each resolution.
+
+         Example for a 10px x 10px square top-center cutout:
+                <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z</string>
+         Example for a 10dp x 10dp square top-center cutout:
+                <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z @dp</string>
+
+         @see https://www.w3.org/TR/SVG/paths.html#PathData
+         -->
+    <string name="config_mainBuiltInDisplayCutout">M 0,0 H -28 V 94 H 28 V 0 H 0 Z</string>
+
+    <!-- The default peak refresh rate for a given device. Change this value if you want to prevent
+         the framework from using higher refresh rates, even if display modes with higher refresh
+         rates are available from hardware composer. Only has an effect if the value is
+         non-zero. -->
+    <integer name="config_defaultPeakRefreshRate">120</integer>
+
+    <!-- Type of the udfps long press sensor. Empty if long press is not supported. -->
+    <string name="config_dozeUdfpsLongPressSensorType" translatable="false">org.lineageos.sensor.udfps</string>
+    
+    <!-- Whether devices suports in-display fingerprint when screen is off -->
+    <bool name="config_supportScreenOffUdfps">true</bool>
+
+   <!-- Flag indicating whether the surface flinger is inefficient
+        at performing a blur.  Used by parts of the UI to turn off
+        the blur effect where it isn't worth the performance hit.
+        As of Honeycomb, blurring is not supported anymore. -->
+    <bool name="config_sf_slowBlur">false</bool>
+
+    <!-- This setting is deprecated, please use
+         com.android.networkstack.tethering.R.array.config_tether_usb_regexs instead. -->
+    <string-array name="config_tether_usb_regexs" translatable="false">
+        <item>usb\\d</item>
+        <item>rndis\\d</item>
+    </string-array>
+
+    <!-- This setting is deprecated, please use
+         com.android.networkstack.tethering.R.array.config_tether_wifi_regexs instead. -->
+    <string-array name="config_tether_wifi_regexs" translatable="false">
+        <item>softap0</item>
+        <item>wlan0</item>
+    </string-array>
+
+    <!-- This setting is deprecated, please use
+         com.android.networkstack.tethering.R.array.config_tether_bluetooth_regexs instead. -->
+    <string-array name="config_tether_bluetooth_regexs" translatable="false">
+        <item>bnep\\d</item>
+        <item>bt-pan</item>
+    </string-array>
+
+    <!-- This setting is deprecated, please use
+         com.android.networkstack.tethering.R.array.config_dhcp_range instead. -->
+    <string-array name="config_tether_dhcp_range" translatable="false">
+        <item>192.168.42.2</item>
+        <item>192.168.42.254</item>
+        <item>192.168.43.2</item>
+        <item>192.168.43.254</item>
+        <item>192.168.44.2</item>
+        <item>192.168.44.254</item>
+        <item>192.168.45.2</item>
+        <item>192.168.45.254</item>
+        <item>192.168.46.2</item>
+        <item>192.168.46.254</item>
+        <item>192.168.47.2</item>
+        <item>192.168.47.254</item>
+        <item>192.168.48.2</item>
+        <item>192.168.48.254</item>
+        <item>192.168.49.2</item>
+        <item>192.168.49.254</item>
+        <item>192.168.50.2</item>
+        <item>192.168.50.254</item>
+        <item>192.168.51.2</item>
+        <item>192.168.51.254</item>
+    </string-array>
+
+    <!-- This setting is deprecated, please use
+         com.android.networkstack.tethering.R.array.config_tether_upstream_types. -->
+    <integer-array name="config_tether_upstream_types" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+        <item>7</item>
+    </integer-array>
+
+    <!-- Flag indicating whether we should enable the automatic brightness.
+         Software implementation will be used if config_hardware_auto_brightness_available is not set -->
+    <bool name="config_automatic_brightness_available">true</bool>
+
+    <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+
+    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
+         in hardware. -->
+    <bool name="config_setColorTransformAccelerated">true</bool>
+
+    <!-- List supported color modes. -->
+    <integer-array name="config_availableColorModes">
+        <item>0</item> <!-- COLOR_MODE_NATURAL -->
+        <item>1</item> <!-- COLOR_MODE_BOOSTED -->
+        <item>2</item> <!-- COLOR_MODE_SATURATED -->
+        <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
+    </integer-array>
+
+    <!-- Color mode to use when accessibility transforms are enabled. This color mode must be
+         supported by the device, but not necessarily appear in config_availableColorModes. The
+         regularly selected color mode will be used if this value is negative. -->
+    <integer name="config_accessibilityColorMode">2</integer>
+
+    <!-- The following two arrays specify which color space to use for display composition when a
+         certain color mode is active.
+         Composition color spaces are defined in android.view.Display.COLOR_MODE_xxx, and color
+         modes are defined in ColorDisplayManager.COLOR_MODE_xxx and
+         ColorDisplayManager.VENDOR_COLOR_MODE_xxx.
+         The color space COLOR_MODE_DEFAULT (0) lets the system select the most appropriate
+         composition color space for currently displayed content. Other values (e.g.,
+         COLOR_MODE_SRGB) override system selection; these other color spaces must be supported by
+         the device for for display composition.
+         If a color mode does not have a corresponding color space specified in this array, the
+         currently set composition color space will not be modified.-->
+    <integer-array name="config_displayCompositionColorModes">
+        <item>0</item> <!-- COLOR_MODE_NATURAL   -->
+        <item>1</item> <!-- COLOR_MODE_BOOSTED   -->
+        <item>2</item> <!-- COLOR_MODE_SATURATED -->
+        <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
+    </integer-array>
+
+    <integer-array name="config_displayCompositionColorSpaces">
+        <item>0</item> <!-- COLOR_MODE_DEFAULT    -->
+        <item>0</item> <!-- COLOR_MODE_DEFAULT    -->
+        <item>0</item> <!-- COLOR_MODE_DEFAULT    -->
+        <item>0</item> <!-- COLOR_MODE_DEFAULT -->
+    </integer-array>    
+
+    <!-- Is the device capable of hot swapping an UICC Card -->
+    <bool name="config_hotswapCapable">true</bool>
+
+    <!-- Screen brightness used to dim the screen while dozing in a very low power state.
+         May be less than the minimum allowed brightness setting
+         that can be set by the user. -->
+    <integer name="config_screenBrightnessDoze">17</integer>
+
+    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->
+    <bool name="config_showNavigationBar">true</bool>
+
+    <!-- ComponentName of a dream to show whenever the system would otherwise have
+         gone to sleep.  When the PowerManager is asked to go to sleep, it will instead
+         try to start this dream if possible.  The dream should typically call startDozing()
+         to put the display into a low power state and allow the application processor
+         to be suspended.  When the dream ends, the system will go to sleep as usual.
+         Specify the component name or an empty string if none.
+
+         Note that doze dreams are not subject to the same start conditions as ordinary dreams.
+         Doze dreams will run whenever the power manager is in a dozing state. -->
+    <string name="config_dozeComponent" translatable="false">com.android.systemui/com.android.systemui.doze.DozeService</string>
+
+    <!-- If true, the doze component is not started until after the screen has been
+         turned off and the screen off animation has been performed. -->
+    <bool name="config_dozeAfterScreenOffByDefault">true</bool>
+
+    <!-- Power Management: Specifies whether to decouple the interactive state of the
+         device from the display on/off state.
+
+         When false, setInteractive(..., true) will be called before the display is turned on
+         and setInteractive(..., false) will be called after the display is turned off.
+         This mode provides best compatibility for devices that expect the interactive
+         state to be tied to the display state.
+
+         When true, setInteractive(...) will be called independently of whether the display
+         is being turned on or off.  This mode enables the power manager to reduce
+         clocks and disable the touch controller while the display is on.
+
+         This resource should be set to "true" when a doze component has been specified
+         to maximize power savings but not all devices support it.
+
+         Refer to power.h for details.
+    -->
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
+
+    <!--  Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">4</integer>
+
+    <!-- Whether UI for multi user should be shown -->
+    <bool name="config_enableMultiUserUI">true</bool>
+
+    <!-- Safe headphone volume index. When music stream volume is below this index
+    the SPL on headphone output is compliant to EN 60950 requirements for portable music
+    players. -->
+    <integer name="config_safe_media_volume_index">100</integer>
+
+    <!-- Set to true if the wifi display supports compositing content stored
+         in gralloc protected buffers.  For this to be true, there must exist
+         a protected hardware path for surface flinger to composite and send
+         protected buffers to the wifi display video encoder.
+
+         If this flag is false, we advise applications not to use protected
+         buffers (if possible) when presenting content to a wifi display because
+         the content may be blanked.
+
+         This flag controls whether the {@link Display#FLAG_SUPPORTS_PROTECTED_BUFFERS}
+         flag is set for wifi displays.
+    -->
+    <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
+
+    <!-- Whether camera shutter sound is forced or not  (country specific). -->
+    <bool name="config_camera_sound_forced">false</bool>
+
+    <!-- Flag indicating which package name can access the persistent data partition -->
+    <string name="config_persistentDataPackageName" translatable="false">com.google.android.gms</string>
+
+    <!--  Define optional package verifier name -->
+    <string name="config_optionalPackageVerifierName" translatable="false">seemp.service</string>
+
+    <!-- Whether the Unprocessed audio source supports the required frequency range and level -->
+    <bool name="config_supportAudioSourceUnprocessed">false</bool>
+
+    <!-- The display uses different gamma curves for different refresh rates. It's hard for panel
+         vendor to tune the curves to have exact same brightness for different refresh rate. So
+         flicker could be observed at switch time. The issue is worse at the gamma lower end.
+         In addition, human eyes are more sensitive to the flicker at darker environment.
+         To prevent flicker, we only support higher refresh rates if the display brightness is above
+         a threshold. And the darker environment could have higher threshold.
+         For example, no higher refresh rate if
+             display brightness <= disp0 && ambient brightness <= amb0
+             || display brightness <= disp1 && ambient brightness <= amb1 -->
+    <integer-array name="config_brightnessThresholdsOfPeakRefreshRate">
+        <item>10</item> <!-- 33% UI brightness -->
+        <item>14</item> <!-- 40% UI brightness -->
+    </integer-array>
+    <integer-array name="config_ambientThresholdsOfPeakRefreshRate">
+        <item>-1</item>
+        <item>20</item>
+    </integer-array>
+
+    <!-- Default refresh rate in the zone defined by brightness and ambient thresholds.
+         If non-positive, then the refresh rate is unchanged even if thresholds are configured. -->
+    <integer name="config_defaultRefreshRateInZone">120</integer>
+
+   <!-- The default refresh rate for a given device. Change this value to set a higher default
+         refresh rate. If the hardware composer on the device supports display modes with a higher
+         refresh rate than the default value specified here, the framework may use those higher
+         refresh rate modes if an app chooses one by setting preferredDisplayModeId or calling
+         setFrameRate().
+         If a non-zero value is set for config_defaultPeakRefreshRate, then
+         config_defaultRefreshRate may be set to 0, in which case the value set for
+         config_defaultPeakRefreshRate will act as the default frame rate. -->
+    <integer name="config_defaultRefreshRate">120</integer>
+
+    <!-- Vibrator pattern for feedback about a long screen/key press -->
+    <integer-array name="config_longPressVibePattern">
+        <item>0</item>
+        <item>1</item>
+        <item>20</item>
+        <item>21</item>
+    </integer-array>
+
+    <!-- Vibrator pattern for feedback about touching a virtual key -->
+    <integer-array name="config_virtualKeyVibePattern">
+        <item>0</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+    </integer-array>
+
+    <!-- Vibrator pattern for feedback when selecting an hour/minute tick of a Clock -->
+    <integer-array name="config_clockTickVibePattern">
+        <item>125</item>
+        <item>30</item>
+    </integer-array>
+
+    <!-- Vibrator pattern for feedback when selecting a day/month/year date of a Calendar -->
+    <integer-array name="config_calendarDateVibePattern">
+        <item>125</item>
+        <item>30</item>
+    </integer-array>
+
+    <!-- Vibrator pattern for feedback about booting with safe mode enabled -->
+    <integer-array name="config_safeModeEnabledVibePattern">
+        <item>0</item>
+        <item>1</item>
+        <item>20</item>
+        <item>21</item>
+        <item>500</item>
+        <item>600</item>
+    </integer-array>
+
+    <!-- Vibrator pattern for feedback about hitting a scroll barrier -->
+    <integer-array name="config_scrollBarrierVibePattern">
+        <item>0</item>
+        <item>15</item>
+        <item>10</item>
+        <item>10</item>
+    </integer-array>
+
+<!-- The default intensity level for haptic feedback. See
+         Settings.System.HAPTIC_FEEDBACK_INTENSITY more details on the constant values and
+         meanings. -->
+    <integer name="config_defaultHapticFeedbackIntensity">3</integer>
+
+    <!-- The default intensity level for notification vibrations. See
+         Settings.System.NOTIFICATION_VIBRATION_INTENSITY more details on the constant values and
+         meanings. -->
+    <integer name="config_defaultNotificationVibrationIntensity">3</integer>
+
+    <!-- The default intensity level for notification vibrations. See
+         Settings.System.RING_VIBRATION_INTENSITY more details on the constant values and
+         meanings. -->
+    <integer name="config_defaultRingVibrationIntensity">3</integer>
+
+    <!-- If this is true, the screen will fade off. -->
+    <bool name="config_animateScreenLights">false</bool>
+
+    <!-- Whether to enable Lineage Health Service -->
+    <bool name="config_lineageHealthSupported">true</bool>
+
+    <!-- Whether WiFi display is supported by this device.
+         There are many prerequisites for this feature to work correctly.
+         Here are a few of them:
+         * The WiFi radio must support WiFi P2P.
+         * The WiFi radio must support concurrent connections to the WiFi display and
+           to an access point.
+         * The Audio Flinger audio_policy.conf file must specify a rule for the "r_submix"
+           remote submix module.  This module is used to record and stream system
+           audio output to the WiFi display encoder in the media server.
+         * The remote submix module "audio.r_submix.default" must be installed on the device.
+         * The device must be provisioned with HDCP keys (for protected content).
+    -->
+    <bool name="config_enableWifiDisplay">true</bool>
+
+    <!-- If true, the display will be shifted around in ambient mode. -->
+    <bool name="config_enableBurnInProtection">true</bool>
+
+    <!-- Whether device has turbo power charging support -->
+    <bool name="config_hasTurboPowerCharger">true</bool>
+
+    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+    <string name="config_oemFastChargerStatusPath" translatable="false">/sys/class/qcom-battery/quick_charge_type</string>
+
+    <!-- Expected value from fast charging status file  -->
+    <string name="config_oemFastChargerStatusValue" translatable="false">3</string>
+
+    <!-- If not empty, sets the AVC codec profile level used for the internal screen recorder.
+         Possible values: 3, 3.1, 3.2, 4, 4.1, 4.2
+    -->
+    <string name="config_screenRecorderAVCProfileLevel" translatable="false">3.1</string>
+
+         <!-- The default journal mode to use use when Write-Ahead Logging is not active.
+         Choices are: OFF, DELETE, TRUNCATE, PERSIST and MEMORY.
+         PERSIST may improve performance by reducing how often journal blocks are
+         reallocated (compared to truncation) resulting in better data block locality
+         and less churn of the storage media.
+         The PERSIST mode results in data persisting in the journal beyond the life of
+         a transaction, so it interacts poorly with SECURE_DELETE. -->
+    <string name="db_default_journal_mode" translatable="false">MEMORY</string>
+
+    <!-- The database synchronization mode when using the default journal mode.
+         FULL is safest and preserves durability at the cost of extra fsyncs.
+         NORMAL also preserves durability in non-WAL modes and uses checksums to ensure
+         integrity although there is a small chance that an error might go unnoticed.
+         Choices are: FULL, NORMAL, OFF. -->
+    <string name="db_default_sync_mode" translatable="false">OFF</string>
+
+    <!-- The database synchronization mode when using Write-Ahead Logging.
+         From https://www.sqlite.org/pragma.html#pragma_synchronous:
+         WAL mode is safe from corruption with synchronous=NORMAL, and probably DELETE mode is safe
+         too on modern filesystems. WAL mode is always consistent with synchronous=NORMAL, but WAL
+         mode does lose durability. A transaction committed in WAL mode with
+         synchronous=NORMAL might roll back following a power loss or system crash.
+         Transactions are durable across application crashes regardless of the synchronous setting
+         or journal mode. The synchronous=NORMAL setting is a good choice for most applications
+         running in WAL mode.
+         Choices are: FULL, NORMAL, OFF. -->
+    <string name="db_wal_sync_mode" translatable="false">OFF</string>
+
+    <!-- Flag indicating whether the surfaceflinger has limited
+         alpha compositing functionality in hardware.  If set, the window
+         manager will disable alpha trasformation in animations where not
+         strictly needed. -->
+    <bool name="config_sf_limitedAlpha">true</bool>
+
+    <!-- Enables or disables fading edges when marquee is enabled in TextView.
+         Off by default, since the framebuffer readback used to implement the
+         fading edges is prohibitively expensive on most GPUs. -->
+    <bool name="config_ui_enableFadingMarquee">true</bool>
+
+    <!-- Determines whether the shell features all run on another thread. This is to be overrided
+         by the resources of the app using the Shell library. -->
+    <bool name="config_enableShellMainThread">true</bool>
+
+    <!-- media controls -->
+    <bool name="config_mediaControlsTurbulenceByDefault">false</bool>
+
+</resources>
